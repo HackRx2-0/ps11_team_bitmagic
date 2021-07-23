@@ -1,26 +1,228 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome doctors </p>
+
 <!-- <a href="" class="btn btn-secondary">Logout</a> -->
 
 
-<!-- Create Team -->
-<div>
-    <button type="button" class="btn btn-outline-primary"><a href="/settings/new_team">Add new teams</a></button>
-</div>
-<br>
-<!--Display Teams -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            overflow: hidden;
+        }
+        body{
+            background: linear-gradient(90deg, #0633ba 0%, #656ce5 50%, #0633ba 100%);
+        }
+        #bottom{
+            position: relative;
+            height: 20vh;
+            left: -10px;
+            width:110vw;
+            top: 70vh;
+            background: linear-gradient(180deg, #052482 0%, rgba(92, 154, 191, 0) 100%);
+            /*overflow-x: hidden;*/
+            overflow: hidden;
+        }
+        #rectangle{
+            position: absolute;
+            width: 88vw;
+            height: 100vh;
+            left: 100px;
+            top: 0px;
+            /*overflow-x: hidden;*/
 
-<div style="margin-left: 30px; margin-right: 30px;">
-    <div class="row"  style="display:flex;flex-wrap:wrap">
-        <% (teams).forEach((team)=>{ %>
-        <div class="col-sm-4 col-md-3">
-            <div class="thumbnail" style="text-align: center;">
-                <img src="<%= team.avatar %>" class="rounded img-fluid" width="200" height="200">
-            <br>
-                <a href="/team/<%= team.team_name %>" class="caption" style="font-weight: 700;"><span class="btn btn-sm btn-success"><%= team.team_name %></span></a>
-            </div>
-        </div>
-        <% }) %>
+            background: linear-gradient(122.06deg, rgba(229, 229, 229, 0.4) 14.47%, rgba(196, 196, 196, 0.1) 70.59%);
+            box-shadow: 0px 4px 24px -1px rgba(207, 210, 250, 0.1);
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+        }
+        #vc{
+            position: relative;
+            margin-left: 5px;
+            /*right: 88.26%;*/
+            margin-top: 3.83%;
+            bottom: 85.39%;
+
+            /*background: #4449B1;*/
+            /*box-shadow: -14px 16px 27px rgba(0, 0, 0, 0.25), inset -3px 2px 4px rgba(0, 0, 0, 0.25);*/
+        }
+        #vc:hover{
+            top: 0%;
+            transition: all 0.3s linear;
+        
+        }
+
+        #chat
+        {
+            position: absolute;
+            top: 25.32%;
+            margin-left: 0;
+            right: 88.26%;
+            bottom: 85.39%;
+
+            /*background: #ECEDFA;*/
+            /*box-shadow: -4px 7px 7px rgba(0, 0, 0, 0.25), inset 3px -2px 4px #7F86ED;*/
+
+        }
+        #other
+        {
+            position: absolute;
+            margin-left: 0;
+            right: 88.96%;
+            top: 44.65%;
+            bottom: 44.53%;
+
+            /*background: #ECEDFA;*/
+            /*box-shadow: -14px 16px 27px rgba(0, 0, 0, 0.25), inset -3px 2px 4px rgba(0, 0, 0, 0.25);*/
+        }
+        #calender
+        {
+            position: absolute;
+            margin-left: 0;
+            right: 88.9%;
+            top: 63.98%;
+            bottom: 25.12%;
+
+            /*background: #ECEDFA;*/
+            /*box-shadow: -14px 16px 27px rgba(0, 0, 0, 0.25), inset 3px -2px 4px rgba(0, 0, 0, 0.25);*/
+        }
+        #dot
+        {
+            position: absolute;
+            width: 83px;
+            height: 32px;
+            left: 67px;
+           /* top: 900px; */
+	    bottom: 50px;
+        }
+
+        #ellipse10
+        {
+            position: absolute;
+            width: 21.34px;
+            height: 32px;
+            left: 97.83px;
+            top: 744px;
+
+            background: radial-gradient(77.25% 77.25% at 69.89% 22.75%, #7F86ED 0%, #3B41DE 100%);
+            box-shadow: inset -6px 9px 11px rgba(255, 255, 255, 0.3), inset 20px -21px 22px rgba(0, 0, 0, 0.14);
+        }
+
+
+        #ellipse9
+        {
+            position: absolute;
+            width: 21.34px;
+            height: 32px;
+            left: 128.66px;
+            top: 744px;
+
+            background: radial-gradient(77.25% 77.25% at 69.89% 22.75%, #7F86ED 0%, #3B41DE 100%);
+            box-shadow: inset -6px 9px 11px rgba(255, 255, 255, 0.3), inset 20px -21px 22px rgba(0, 0, 0, 0.14);
+        }
+
+        #ellipse8
+        {
+            position: absolute;
+            width: 21.34px;
+            height: 32px;
+            left: 67px;
+            top: 744px;
+
+            background: radial-gradient(77.25% 77.25% at 69.89% 22.75%, #7F86ED 0%, #3B41DE 100%);
+            box-shadow: inset -6px 9px 11px rgba(255, 255, 255, 0.3), inset 20px -21px 22px rgba(0, 0, 0, 0.14);
+        }
+        #dot-group{
+            position: absolute;
+            width: 72.24px;
+            height: 18.14px;
+            left: 206.83px;
+            top: 709.86px;
+        }
+        #doctor{
+            bottom: 0px;
+            left: 50vw;
+        }
+        /*#rect{*/
+        /*    position: absolute;*/
+        /*    width: 882.05px;*/
+        /*    height: 500.76px;*/
+        /*    left: 377.54px;*/
+        /*    top: 98px;*/
+
+        /*    background: linear-gradient(87.67deg, #969EFF 0%, #5F63C9 100%);*/
+        /*    border-radius: 21px;*/
+        /*}*/
+        #box{
+            position: absolute;
+            width: 882.05px;
+            height: 614.76px;
+            left: 377.54px;
+            top: 98px;
+
+            background: linear-gradient(87.67deg, #969EFF 0%, #5F63C9 100%);
+            border-radius: 21px;
+        }
+        #doctor{
+            width: 30%;
+            height:50%;
+            margin-left: 850px;
+            margin-top: 150px;
+        }
+        #sidebar{
+            position: absolute;
+            width: 70px;
+            height: 869px;
+            left: 0px;
+            top: 0px;
+
+            background: #2B0CCD;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome doctors </p>
+    <div id="bottom">
     </div>
-</div>
+   <div id="sidebar">-->
+<!--    </div>-->
+    <div id="rectangle">
+        <div class="sidebar-icons">
+       <a href=""> <img id="vc" src="./images/vc.svg"> </a>    
+       <a href="">      <img id="chat" src="./images/chat.svg"> </a>    
+       <a href="">    <img id="other" src="./images/other.svg"> </a>    
+       <a href="">  <img id="calender" src="./images/calender.svg"> </a>    
+	  <!--  <img id="calender" src="./images/dot.svg">-->
+        </div>
+        <img id="doctor" src="doctor.png">
+    </div> -->
+
+    <div>
+        <button type="button" class="btn btn-outline-primary"><a href="/settings/new_team">Add new teams</a></button>
+    </div>
+    <br>
+    <!--Display Teams -->
+    
+    <div style="margin-left: 30px; margin-right: 30px;">
+        <div class="row"  style="display:flex;flex-wrap:wrap">
+            <% (teams).forEach((team)=>{ %>
+            <div class="col-sm-4 col-md-3">
+                <div class="thumbnail" style="text-align: center;">
+                    <img src="<%= team.avatar %>" class="rounded img-fluid" width="200" height="200">
+                <br>
+                    <a href="/team/<%= team.team_name %>" class="caption" style="font-weight: 700;"><span class="btn btn-sm btn-success"><%= team.team_name %></span></a>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    
+<!-- </body>
+</html> -->
+
+
+<!-- Create Team -->
 

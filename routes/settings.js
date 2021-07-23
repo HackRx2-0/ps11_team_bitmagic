@@ -79,6 +79,17 @@ router.post('/appointment',async (req,res)=>{
 })
 
 
+// @route   GET settings/consult
+// @desc    Store all medical details for the patient
+// @access  Private
+
+router.get("/consult",async (req,res)=>{
+    // const allTeams=await Team.find({});
+    res.render("consult");
+});
+
+
+
 
 
 

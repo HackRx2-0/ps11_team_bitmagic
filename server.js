@@ -3,9 +3,12 @@ const app = express();
 const connectDB = require('./config/db');
 const path = require('path');
 const passport = require('passport');
+
 const server = require("http").Server(app);
 const flash = require('connect-flash');
 const session = require('express-session');
+
+
 const moment = require('moment'); // Library that helps in printing time in a more user friendly manner
 const io = require("socket.io")(server);
 const { ExpressPeerServer } = require("peer");
@@ -15,6 +18,7 @@ const peerServer = ExpressPeerServer(server, {
 
 
 require('./config/passport')(passport);
+
 
 
 //Body parser Middleware 
@@ -28,11 +32,18 @@ app.use(
       resave: true,
       saveUninitialized: true
     })
+
   );
+  
+  
+
+
+  
   
   // Passport middleware
   app.use(passport.initialize());
   app.use(passport.session());
+
   
   // Connect flash
   app.use(flash());

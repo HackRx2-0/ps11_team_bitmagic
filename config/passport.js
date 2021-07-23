@@ -45,40 +45,40 @@ module.exports = function(passport) {
 
 
 
-module.exports = function(passport) {
-    passport.use(
-      new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
-        // Match user
-        Doctor.findOne({
-          email: email
-        }).then(doctor => {
-          if (!doctor) {
-            return done(null, false, { message: 'That email is not registered' });
-          }
+// module.exports = function(passport) {
+//     passport.use(
+//       new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
+//         // Match user
+//         Doctor.findOne({
+//           email: email
+//         }).then(doctor => {
+//           if (!doctor) {
+//             return done(null, false, { message: 'That email is not registered' });
+//           }
   
-          // Match password
-          bcrypt.compare(password, doctor.password, (err, isMatch) => {
-            if (err) throw err;
-            if (isMatch) {
-              return done(null, doctor);
-            } else {
-              return done(null, false, { message: 'Password incorrect' });
-            }
-          });
-        });
-      })
-    );
+//           // Match password
+//           bcrypt.compare(password, doctor.password, (err, isMatch) => {
+//             if (err) throw err;
+//             if (isMatch) {
+//               return done(null, doctor);
+//             } else {
+//               return done(null, false, { message: 'Password incorrect' });
+//             }
+//           });
+//         });
+//       })
+//     );
   
-    passport.serializeUser(function(doctor, done) {
-      done(null, doctor.id);
-    });
+//     passport.serializeUser(function(doctor, done) {
+//       done(null, doctor.id);
+//     });
   
-    passport.deserializeUser(function(id, done) {
-      Doctor.findById(id, function(err, doctor) {
-        done(err, doctor);
-      });
-    });
-  };
+//     passport.deserializeUser(function(id, done) {
+//       Doctor.findById(id, function(err, doctor) {
+//         done(err, doctor);
+//       });
+//     });
+//   };
 
 
 

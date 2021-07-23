@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 const Doctor=require('../models/Doctor');
 const Team=require('../models/Team');
 const Chat = require('../models/Chat');
-
+const Patient = require('../models/Patient');
 
 
 
@@ -84,11 +84,52 @@ router.post('/appointment',async (req,res)=>{
 // @access  Private
 
 router.get("/consult",async (req,res)=>{
-    // const allTeams=await Team.find({});
+  
     res.render("consult");
 });
 
 
+// @route   POST settings/new_team
+// @desc    Creates a new team
+// @access  Private
+router.post('/consult',async (req,res)=>{
+
+    
+    
+    try{
+        const patient = await Patient.findOne({email:req.body.email});
+        patient.phoneNumber = req.body.phone;
+        patient.title = req.body.title;
+        patient.gender = req.body.sex;
+        patient.weight = req.body.weight;
+        patient.bloodType = req.body.bloodType;
+
+        patient.medicalHistory.unshift({
+            startDate:req.body.date,
+            condition:req.body.condition,
+            notes:req.body.notes
+        })
+        console.log("Medical History appended");
+        patient.allergies.unshift({
+            aname:req.body.aname,
+            severity:req.body.severity
+        });
+        console.log("Allergies History appended");
+        patient.medication.unshift({
+            mname:req.body.mname,
+            dosage:req.body.dosage,
+            manufacturer:req.body.manufacturer
+        });
+       
+        console.log("Medication History appended");
+         await patient.save();
+       
+        res.redirect('/dashboardp')
+    }catch(err){
+        console.log(err+" <== Error");
+        res.redirect('/')
+    }
+})
 
 
 

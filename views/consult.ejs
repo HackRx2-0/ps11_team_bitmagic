@@ -1,67 +1,80 @@
 <h1> Consulting Form </h1>
 
 
-        <form action="/settings/consult" method="POST">
-          <div class="form-group">
-            <label for="name">First Name</label>
-            <input
-              type="name"
-              id="fname"
-              name="fname"
-              class="form-control"
-              placeholder="Enter Name"
-              value="<%= typeof name != 'undefined' ? name : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="name">Last Name</label>
-            <input
-              type="name"
-              id="lname"
-              name="lname"
-              class="form-control"
-              placeholder="Enter Name"
-              value="<%= typeof name != 'undefined' ? name : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="email">Title</label>
-            <input
-              type="email"
-              id="email"
-              name="title"
-              class="form-control"
-              placeholder="Enter Email"
-              value="<%= typeof email != 'undefined' ? email : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Sex</label>
-            <input
-              type="password"
-              id="password"
-              name="sex"
-              class="form-control"
-              placeholder="Create Password"
-              value="<%= typeof password != 'undefined' ? password : '' %>"
-            />
-          </div>
-          <div class="form-group">
-            <label for="password2">Confirm Password</label>
-            <input
-              type="password"
-              id="password2"
-              name="password2"
-              class="form-control"
-              placeholder="Confirm Password"
-              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">
-            Register
-          </button>
-        </form>
-        <p class="lead mt-4">Have An Account? <a href="/patients/login">Login</a></p>
-      </div>
-    </div>
+<div class="container">
+  <form action="/settings/consult" method="POST">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the link of the avatar">
   </div>
+    <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">phone No</label>
+          <input type="text" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the link of the avatar">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Title</label>
+        <select name="title">
+            <option value="Mr.">Mr.</option>
+            <option value="Mrs.">Mrs.</option>
+            <option value="Miss">Miss</option>
+        </select>
+    </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Gender</label>
+        <select name="sex">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Blood Group</label>
+      <select name="bloodType">
+          <option value="A+">A+</option>
+          <option value="B+">B+</option>
+          <option value="O+">O+</option>
+          <option value="A-">A-</option>
+          <option value="B-">B-</option>
+          <option value="O-">O-</option>
+          <option value="AB-">AB-</option>
+          <option value="AB+">AB+</option>
+      </select>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Weight</label>
+    <input type="int" name="weight" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of the team" required>
+</div>
+<fieldset>
+  <legend>Medical History :</legend>
+  <label for="fname">Date:</label>
+  <input type="text" id="fname" name="startDate"><br><br>
+  <label for="lname">Condition:</label>
+  <input type="text" id="lname" name="condition"><br><br>
+  <label for="email">Notes:</label>
+  <input type="text" id="email" name="notes"><br><br>
+  </fieldset> 
+
+  <fieldset>
+    <legend>Allergies :</legend>
+    <label for="fname">Name:</label>
+    <input type="text" id="fname" name="aname"><br><br>
+    <label for="lname">Severity:</label>
+    <input type="number" id="lname" name="severity"><br><br>
+    
+    </fieldset> 
+
+    <fieldset>
+      <legend>Medication :</legend>
+      <label for="fname">Name:</label>
+      <input type="text" id="fname" name="mname"><br><br>
+      <label for="lname">Dosage:</label>
+      <input type="number" id="lname" name="dosage"><br><br>
+      <label for="email">Manufacturer:</label>
+      <input type="text" id="email" name="manufacturer"><br><br>
+      </fieldset> 
+     
+      <a href="/"><button type="button" class="btn btn-danger">Cancel</button></a>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+

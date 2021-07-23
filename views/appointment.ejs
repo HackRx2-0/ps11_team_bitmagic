@@ -1,0 +1,42 @@
+<div class="container">
+    <form action="/settings/appointment" method="POST">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Patient Name</label>
+            <input type="text" name="patientName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of the team" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">phone No</label>
+            <input type="text" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the link of the avatar">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the link of the avatar">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Doctors</label><br>
+            <select name="members" >
+                <% team.forEach((user)=>{ %>
+                    <option value="<%= team.team_name %>"><%= team.team_name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">date</label>
+            <input type="date" name="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the link of the avatar">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Time Slots</label>
+            <select name="time_slot">
+                <option value="10:00 a.m. to 11:00 a.m">10:00 a.m. to 11:00 a.m</option>
+                <option value="11:00 a.m. to 12:00 p.m">11:00 a.m. to 12:00 p.m</option>
+                <option value="12:00 p.m. to 1:00 p.m">12:00 p.m. to 1:00 p.m</option>
+                <option value="2:30 p.m. to 3:30 p.m">2:30 p.m. to 3:30 p.m</option>
+                <option value="3:30 p.m. to 4:30 p.m">3:30 p.m. to 4:00 p.m</option>
+                <option value="4:30 p.m. to 5:30 p.m">4:30 p.m. to 5:00 p.m</option>
+            </select>
+        </div>
+        <a href="/"><button type="button" class="btn btn-danger">Cancel</button></a>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
